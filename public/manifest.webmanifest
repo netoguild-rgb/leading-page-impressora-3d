@@ -1,0 +1,19 @@
+{
+  "name": "PRISM 3D",
+  "short_name": "PRISM3D",
+  "description": "Catalogo de impressoras 3D com paginas tecnicas e downloads oficiais.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4f6f7",
+  "theme_color": "#16c7b7",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

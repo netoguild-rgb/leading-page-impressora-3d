@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecionando...</title>
+    <script>
+      (function () {
+        var l = window.location;
+        var isGithubPages = /\.github\.io$/i.test(l.hostname);
+        var segments = l.pathname.split('/').filter(Boolean);
+        var repoBase = isGithubPages && segments.length > 1 ? '/' + segments[0] : '';
+        var appPath = repoBase ? '/' + segments.slice(1).join('/') : l.pathname;
+        var query = l.search.length > 1 ? l.search.slice(1) : '';
+        var redirectUrl =
+          l.protocol +
+          '//' +
+          l.hostname +
+          (l.port ? ':' + l.port : '') +
+          repoBase +
+          '/?p=' +
+          encodeURIComponent(appPath || '/') +
+          '&q=' +
+          encodeURIComponent(query) +
+          l.hash;
+        l.replace(redirectUrl);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
+

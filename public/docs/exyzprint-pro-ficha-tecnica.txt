@@ -1,0 +1,23 @@
+EXYZprint PRO - Ficha Tecnica
+Versao: 2026.03
+
+Nome comercial:
+- EXYZprint PRO
+
+Referencia tecnica:
+- Plataforma da familia da Vinci 1.0 Pro (XYZprinting), usada como base de operacao.
+
+Aplicacoes recomendadas:
+- Prototipagem de baixo volume
+- Pecas de validacao de encaixe
+- Demonstracao comercial e engenharia de produto
+
+Pontos operacionais:
+- Operacao continua para lotes curtos
+- Compatibilidade com materiais tecnicos conforme perfil de impressao
+- Fluxo otimizado para celulas de prototipagem e pre-serie
+
+Observacoes:
+- A configuracao final depende de versao de firmware, nozzle, material e setup de processo.
+- Para parametros detalhados de seguranca, calibracao e manutencao, consultar manual do equipamento.
+

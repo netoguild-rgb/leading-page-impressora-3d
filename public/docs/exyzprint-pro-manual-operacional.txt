@@ -1,0 +1,30 @@
+﻿EXYZprint PRO - Manual Operacional (Resumo)
+Versao: 2026.03
+
+1. Checklist de inicio
+- Verificar nivelamento da base
+- Confirmar limpeza de nozzle e mesa
+- Conferir perfil de material no slicer
+- Validar temperatura e velocidade para o material escolhido
+
+2. Fluxo recomendado
+- Executar calibracao inicial
+- Rodar peca-teste curta para validar adesao
+- Iniciar lote com monitoramento das primeiras camadas
+- Registrar parametros aprovados para repetibilidade
+
+3. Manutencao preventiva
+- Limpar bico periodicamente
+- Revisar sistema de tracao e caminho do filamento
+- Conferir estado de correias e parafusos de fixacao
+- Atualizar software/firmware conforme orientacao oficial
+
+4. Boas praticas
+- Usar material seco e armazenado corretamente
+- Manter padrao de setup por material
+- Evitar mudancas simultaneas de muitos parametros
+- Documentar falhas e correcao aplicada
+
+5. Referencia externa
+- Manual completo da linha da Vinci 1.0 Pro:
+  https://www.manualslib.com/manual/1111042/Xyz-Printing-Da-Vinci-1-0-Pro.html
