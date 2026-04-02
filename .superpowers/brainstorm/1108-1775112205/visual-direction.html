@@ -1,0 +1,57 @@
+<h2>Qual direção visual você quer para as melhorias?</h2>
+<p class="subtitle">O site atual tem base clara (light), teal como acento e estilo Logitech. Para onde devemos evoluir?</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="premium-dark" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: linear-gradient(135deg, #0a0f14 0%, #0d1f1a 60%, #00c9a7 100%); height: 160px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px; padding:20px;">
+      <div style="font-family:'Sora',sans-serif; font-size:22px; font-weight:700; color:#fff; letter-spacing:-0.03em;">Desempenho.<br>Sem compromisso.</div>
+      <div style="width:40px; height:2px; background:#00c9a7; border-radius:2px;"></div>
+      <div style="font-size:11px; color:rgba(255,255,255,0.5); letter-spacing:0.12em; text-transform:uppercase;">BAMBU LAB P2S</div>
+    </div>
+    <div class="card-body">
+      <h3>A — Premium Dark</h3>
+      <p>Fundo escuro (quase preto), acento teal mais vibrante, glassmorphism sutil nos cards. Estilo Bambu Lab / Apple Pro. Seções hero e gear ficam muito mais dramáticas.</p>
+      <div class="pros-cons" style="margin-top:12px">
+        <div class="pros"><h4>Prós</h4><ul><li>Alta percepção de valor</li><li>Animações mais visíveis</li><li>Trend atual em tech</li></ul></div>
+        <div class="cons"><h4>Contras</h4><ul><li>Mudança grande no CSS</li><li>Risco em seções de blog/texto</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-choice="refined-light" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: linear-gradient(135deg, #ffffff 0%, #f0f9f7 100%); height: 160px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px; padding:20px; border-bottom:1px solid #dbe1e7;">
+      <div style="font-family:'Sora',sans-serif; font-size:22px; font-weight:700; color:#1a1a1a; letter-spacing:-0.03em;">Desempenho.<br>Sem compromisso.</div>
+      <div style="width:40px; height:2px; background:#00c9a7; border-radius:2px;"></div>
+      <div style="font-size:11px; color:#6f7780; letter-spacing:0.12em; text-transform:uppercase;">BAMBU LAB P2S</div>
+    </div>
+    <div class="card-body">
+      <h3>B — Light Refinado (evolução do atual)</h3>
+      <p>Mantém a base clara mas com mais espaçamento, tipografia mais agressiva, cards com sombras mais premium e micro-animações novas. Menor risco, maior consistência.</p>
+      <div class="pros-cons" style="margin-top:12px">
+        <div class="pros"><h4>Prós</h4><ul><li>Menos quebras de layout</li><li>Melhor legibilidade</li><li>Animações existentes preservadas</li></ul></div>
+        <div class="cons"><h4>Contras</h4><ul><li>Evolução incremental</li><li>Menos dramático</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-choice="hybrid" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: linear-gradient(135deg, #0a0f14 0%, #0d1f1a 45%, #ffffff 45%); height: 160px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px; padding:20px; position:relative; overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:55%;bottom:0;background:linear-gradient(135deg,#0a0f14,#0d1f1a);display:flex;align-items:center;justify-content:center;">
+        <div style="font-family:'Sora',sans-serif; font-size:14px; font-weight:700; color:#fff; text-align:center; padding:8px;">HERO<br><span style="color:#00c9a7; font-size:11px;">dark</span></div>
+      </div>
+      <div style="position:absolute;top:0;right:0;left:45%;bottom:0;background:#f5f5f5;display:flex;align-items:center;justify-content:center; border-left:2px solid #00c9a7;">
+        <div style="font-family:'Sora',sans-serif; font-size:14px; font-weight:700; color:#1a1a1a; text-align:center; padding:8px;">CONTEÚDO<br><span style="color:#00a88a; font-size:11px;">light</span></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Híbrido (dark hero + light content)</h3>
+      <p>Hero e GearMastery viram dark/dramáticos. Features, Specs, Blog e CTA permanecem claros. Contraste máximo entre seções de "impacto" e seções de "informação".</p>
+      <div class="pros-cons" style="margin-top:12px">
+        <div class="pros"><h4>Prós</h4><ul><li>Melhor hierarquia visual</li><li>Cada seção tem identidade</li><li>Equilíbrio leitura/impacto</li></ul></div>
+        <div class="cons"><h4>Contras</h4><ul><li>Transições entre temas exigem atenção</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+</div>

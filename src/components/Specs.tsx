@@ -6,9 +6,9 @@ import { useGSAP } from '@gsap/react';
 gsap.registerPlugin(ScrollTrigger);
 
 const SPECS = [
-  { icon: '\u26A1', value: '1000 mm/s', label: 'Velocidade máxima' },
-  { icon: '\u{1F680}', value: '30.000 mm/s\u00B2', label: 'Aceleração máxima' },
-  { icon: '\u{1F4E6}', value: '260 x 260 x 260 mm', label: 'Volume de impressão' },
+  { icon: '\u26A1', value: '1000 mm/s', label: 'Velocidade máxima', key: true },
+  { icon: '\u{1F680}', value: '30.000 mm/s\u00B2', label: 'Aceleração máxima', key: true },
+  { icon: '\u{1F4E6}', value: '260 x 260 x 260 mm', label: 'Volume de impressão', key: true },
   { icon: '\u{1F321}\uFE0F', value: '350 \u00B0C', label: 'Hotend máximo' },
   { icon: '\u{1F525}', value: '120 \u00B0C', label: 'Mesa aquecida máxima' },
   { icon: '\u{1F9EA}', value: '40 mm\u00B3/s', label: 'Vazão máxima do hotend' },
@@ -51,7 +51,7 @@ export default function Specs() {
         </div>
         <div className="specs-grid">
           {SPECS.map((s) => (
-            <div className="spec-item" key={s.label}>
+            <div className={`spec-item${s.key ? ' spec-item--key' : ''}`} key={s.label}>
               <span className="spec-icon">{s.icon}</span>
               <span className="spec-value">{s.value}</span>
               <span className="spec-label">{s.label}</span>

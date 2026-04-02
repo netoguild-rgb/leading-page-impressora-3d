@@ -42,26 +42,25 @@ export default function Highlights() {
           />
           <div className="highlight-overlay">
             <div className="highlight-text-block">
+              <span className="highlight-badge">PRODUÇÃO</span>
               <h3>Fabricação<br />de Precisão</h3>
               <p>Tecnologia de extrusão industrial para resultados profissionais.</p>
             </div>
           </div>
         </div>
 
-        {/* Center card — Logitech-style: image on top, text below */}
+        {/* Center card */}
         <div className="highlight-card highlight-card--center">
           <img
-            src="https://images.unsplash.com/photo-1565688534245-05d6b5be184a?w=600&q=80"
-            alt="Impressora 3D"
+            src="/P2S-2.png"
+            alt="Bambu Lab P2S com AMS 2 Pro"
             style={{ minHeight: 480 }}
           />
-          <div className="highlight-overlay">
-            <div className="highlight-text-block" style={{ color: '#fff' }}>
+          <div className="highlight-overlay highlight-overlay--center">
+            <div className="highlight-text-block highlight-text-block--light">
+              <span className="highlight-badge">BAMBU LAB P2S</span>
               <h3>Imprima<br />com o PRISM</h3>
-              <p style={{ color: 'rgba(255,255,255,0.85)' }}>
-                Adicione capacidade profissional ao seu estúdio com o
-                PRISM 3D — precisão e acabamento de nível industrial.
-              </p>
+              <p>Capacidade multicolor profissional com velocidade de até 1000 mm/s.</p>
             </div>
           </div>
         </div>
@@ -69,13 +68,14 @@ export default function Highlights() {
         {/* Right card */}
         <div className="highlight-card highlight-card--side">
           <img
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80"
-            alt="Profissional usando impressora 3D"
+            src="/robot-colored.webp"
+            alt="Peça impressa em 3D pintada"
           />
           <div className="highlight-overlay">
             <div className="highlight-text-block">
+              <span className="highlight-badge">RESULTADO FINAL</span>
               <h3>Qualidade<br />Profissional</h3>
-              <p>Mais de 6 materiais suportados, do PLA ao Nylon reforçado.</p>
+              <p>Do PLA ao Nylon reforçado — 6+ materiais para cada aplicação.</p>
             </div>
           </div>
         </div>

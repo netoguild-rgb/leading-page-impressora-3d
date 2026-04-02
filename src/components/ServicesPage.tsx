@@ -116,12 +116,14 @@ export default function ServicesPage() {
               </a>
               <a
                 className="catalog-cta catalog-cta--secondary"
-                href="mailto:comercial@prism3d.com.br?subject=Servicos%20PRISM%203D"
+                href="https://wa.me/558133334455?text=Ol%C3%A1%2C%20PRISM%203D!%20Gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20de%20fabrica%C3%A7%C3%A3o%203D."
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => {
                   trackEvent('cta_click', {
                     area: 'services_page',
                     cta: 'falar_com_operacao',
-                    destination: 'mailto:comercial@prism3d.com.br',
+                    destination: 'whatsapp',
                   });
                 }}
               >

@@ -35,8 +35,15 @@ export default function UnderDevelopmentPage({
         <section className="legal-section">
           <h2>Atendimento imediato</h2>
           <p>
-            Enquanto finalizamos esta página, fale com nosso time comercial:
-            {' '}
+            Enquanto finalizamos esta página, fale com nosso time comercial pelo{' '}
+            <a
+              href="https://wa.me/558133334455?text=Ol%C3%A1%2C%20PRISM%203D!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp
+            </a>
+            {' '}ou por{' '}
             <a href="mailto:comercial@prism3d.com.br">comercial@prism3d.com.br</a>
           </p>
         </section>

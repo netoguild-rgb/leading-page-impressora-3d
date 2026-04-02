@@ -145,6 +145,14 @@ export default function CreativeApplications() {
     <section className="creative-section section-flow" ref={sectionRef} id="aplicacoes" style={sectionStyle}>
       <div className="creative-sticky">
         <div className="creative-inner">
+          <div className="creative-progress-dots" aria-hidden="true">
+            {CREATIVE_SLIDES.map((slide, index) => (
+              <span
+                key={slide.id}
+                className={`creative-dot ${index === activeIndex ? 'is-active' : ''}`}
+              />
+            ))}
+          </div>
           <div className="creative-copy-stage">
             {CREATIVE_SLIDES.map((slide, index) => (
               <div

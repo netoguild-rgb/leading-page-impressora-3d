@@ -437,7 +437,9 @@ export default function NavbarSalesAgent({ onActiveChange }: NavbarSalesAgentPro
             {isLoading ? (
               <article className="navbar-sales-msg is-assistant is-loading">
                 <div className="navbar-sales-msg-text">
-                  <p>Analisando...</p>
+                  <p className="navbar-sales-typing">
+                    <span /><span /><span />
+                  </p>
                 </div>
               </article>
             ) : null}

@@ -59,8 +59,6 @@ export default function SiteFooter() {
           <a href="mailto:comercial@prism3d.com.br">comercial@prism3d.com.br</a>
           <a href="tel:+558133334455">+55 (81) 3333-4455</a>
           <address>
-            Endereço mock:
-            <br />
             Avenida Cais do Apolo, 455
             <br />
             Bairro do Recife, Recife - PE

@@ -57,18 +57,16 @@ export default function CallToAction() {
       return;
     }
 
-    const subject = 'Solicitação de contato comercial - Bambu Lab P2S | PRISM 3D';
-    const body = [
-      'Nova solicitação de contato:',
-      '',
+    const lines = [
+      `Olá, PRISM 3D! Gostaria de solicitar um contato comercial.`,
+      ``,
       `Nome: ${form.name || '-'}`,
       `Empresa: ${form.company || '-'}`,
-      `WhatsApp/Telefone: ${form.phone || '-'}`,
-      `E-mail: ${form.email || '-'}`,
-      '',
-      'Necessidade:',
-      form.message || '-',
-    ].join('\n');
+      `Telefone/E-mail: ${form.phone || '-'}${form.email ? ` / ${form.email}` : ''}`,
+    ];
+    if (form.message.trim()) {
+      lines.push(``, `Necessidade: ${form.message.trim()}`);
+    }
 
     trackEvent('contact_request_submit', {
       source: 'cta_contact_area',
@@ -78,11 +76,13 @@ export default function CallToAction() {
       email: form.email.trim() || '',
     });
 
-    window.location.href = `mailto:comercial@prism3d.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const waNumber = '558133334455';
+    const waText = encodeURIComponent(lines.join('\n'));
+    window.open(`https://wa.me/${waNumber}?text=${waText}`, '_blank', 'noopener,noreferrer');
 
     setFeedback({
       type: 'success',
-      message: 'Solicitação preparada. Se o e-mail não abrir automaticamente, envie para comercial@prism3d.com.br.',
+      message: 'WhatsApp aberto com sua mensagem. Se não abrir, chame diretamente: (81) 3333-4455.',
     });
     setForm(INITIAL_FORM);
   };
@@ -154,7 +154,7 @@ export default function CallToAction() {
 
           <div className="contact-actions">
             <button className="cta-button" type="submit">
-              Solicitar contato
+              Enviar pelo WhatsApp
             </button>
             <a className="contact-mail-link" href="mailto:comercial@prism3d.com.br">
               comercial@prism3d.com.br

@@ -116,12 +116,14 @@ export default function ConsultoriaPage() {
               </a>
               <a
                 className="catalog-cta catalog-cta--secondary"
-                href="mailto:comercial@prism3d.com.br?subject=Consultoria%20PRISM%203D"
+                href="https://wa.me/558133334455?text=Ol%C3%A1%2C%20PRISM%203D!%20Gostaria%20de%20saber%20mais%20sobre%20a%20consultoria%20para%20opera%C3%A7%C3%A3o%20de%20impress%C3%A3o%203D."
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => {
                   trackEvent('cta_click', {
                     area: 'consultoria_page',
                     cta: 'falar_com_especialista',
-                    destination: 'mailto:comercial@prism3d.com.br',
+                    destination: 'whatsapp',
                   });
                 }}
               >
