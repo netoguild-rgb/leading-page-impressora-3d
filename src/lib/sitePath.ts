@@ -13,20 +13,29 @@ export function toSitePath(target: string): string {
   if (!target) return target;
   if (target.startsWith('#')) return target;
   if (target.startsWith('http://') || target.startsWith('https://')) return target;
+  if (target.startsWith('//')) return target;
   if (target.startsWith('mailto:') || target.startsWith('tel:')) return target;
   if (!target.startsWith('/')) return target;
   if (!BASE_PATH) return target;
+  if (target === BASE_PATH) return target;
+  if (target.startsWith(`${BASE_PATH}/`)) return target;
+  if (target.startsWith(`${BASE_PATH}?`) || target.startsWith(`${BASE_PATH}#`)) return target;
   return `${BASE_PATH}${target}`;
 }
 
 export function stripBasePath(pathname: string): string {
   if (!BASE_PATH) return pathname || '/';
-  if (pathname === BASE_PATH) return '/';
-  if (pathname.startsWith(`${BASE_PATH}/`)) {
-    const stripped = pathname.slice(BASE_PATH.length);
-    return stripped || '/';
+  let next = pathname || '/';
+
+  while (next === BASE_PATH || next.startsWith(`${BASE_PATH}/`)) {
+    if (next === BASE_PATH) {
+      next = '/';
+      break;
+    }
+    next = next.slice(BASE_PATH.length) || '/';
   }
-  return pathname || '/';
+
+  return next;
 }
 
 export function applySpaRedirectIfNeeded(): void {
@@ -47,4 +56,3 @@ export function applySpaRedirectIfNeeded(): void {
 
   window.history.replaceState(null, '', nextUrl);
 }
-
