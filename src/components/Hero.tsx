@@ -27,6 +27,7 @@ const PHASE_COLOR_START = 0.70;
 const PHASE_COLOR_END   = 0.85;
 const SCRUB_FPS         = 24;
 const FALLBACK_VIDEO_SECONDS = 8;
+const SEEK_MIN_INTERVAL_MS = 33;
 
 function lerp(a: number, b: number, t: number) {
   return a + (b - a) * Math.max(0, Math.min(1, t));
@@ -43,6 +44,7 @@ export default function Hero() {
   const pendingSeekTimeRef = useRef<number | null>(null);
   const seekRafIdRef = useRef<number | null>(null);
   const lastCostValuesRef = useRef<string[]>([]);
+  const lastSeekAtRef = useRef<number>(0);
 
   const fmt = useCallback((val: number, decimals: number) => {
     return new Intl.NumberFormat('pt-BR', {
@@ -160,6 +162,7 @@ export default function Hero() {
 
     lastScrubFrameRef.current = -1;
     pendingSeekTimeRef.current = 0;
+    lastSeekAtRef.current = 0;
     lastCostValuesRef.current = [];
     updateCosts(0);
   }, [updateCosts]);
@@ -189,11 +192,15 @@ export default function Hero() {
     resetHeroState();
     const flushPendingSeek = () => {
       if (video.seeking) return;
+      if (video.readyState < 2) return;
       const targetTime = pendingSeekTimeRef.current;
       if (targetTime == null) return;
+      const now = performance.now();
+      if (now - lastSeekAtRef.current < SEEK_MIN_INTERVAL_MS) return;
       pendingSeekTimeRef.current = null;
       if (Math.abs(video.currentTime - targetTime) > 1 / (SCRUB_FPS * 2)) {
         video.currentTime = targetTime;
+        lastSeekAtRef.current = now;
       }
     };
     const scheduleSeek = () => {
@@ -210,9 +217,10 @@ export default function Hero() {
     };
 
     let usingFallbackDuration = false;
-    const initScrollScrub = () => {
+    const initScrollScrub = (allowFallback: boolean) => {
       const rawDuration = video.duration;
       const hasRealDuration = Number.isFinite(rawDuration) && rawDuration > 0;
+      if (!hasRealDuration && !allowFallback) return false;
       const effectiveDuration = hasRealDuration ? rawDuration : FALLBACK_VIDEO_SECONDS;
       usingFallbackDuration = !hasRealDuration;
       try {
@@ -253,13 +261,14 @@ export default function Hero() {
     let attempts = 0;
     const poll = setInterval(() => {
       attempts++;
-      if (initScrollScrub() || attempts >= 100) clearInterval(poll);
+      const allowFallback = attempts >= 16;
+      if (initScrollScrub(allowFallback) || attempts >= 100) clearInterval(poll);
     }, 100);
 
     const onMeta = () => {
       clearInterval(poll);
       if (!Number.isFinite(video.duration) || video.duration <= 0) return;
-      if (!st || usingFallbackDuration) initScrollScrub();
+      if (!st || usingFallbackDuration) initScrollScrub(true);
     };
     video.addEventListener('loadedmetadata', onMeta);
     video.addEventListener('seeked', onSeeked);
@@ -306,7 +315,7 @@ export default function Hero() {
           src={toSitePath('/Steampunk_Robot_D_Printing_Animation_scrub.mp4')}
           muted
           playsInline
-          preload="metadata"
+          preload="auto"
         />
         <img
           ref={rawImgRef}
