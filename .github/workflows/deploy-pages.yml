@@ -43,6 +43,10 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          VITE_GROQ_API_KEY: ${{ secrets.VITE_GROQ_API_KEY }}
+          VITE_GROQ_MODEL: ${{ secrets.VITE_GROQ_MODEL }}
+          VITE_GROQ_WHISPER_MODEL: ${{ secrets.VITE_GROQ_WHISPER_MODEL }}
         run: npm run build
 
       - name: Configure Pages
