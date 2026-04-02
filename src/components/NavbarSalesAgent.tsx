@@ -358,7 +358,7 @@ export default function NavbarSalesAgent({ onActiveChange }: NavbarSalesAgentPro
         aria-controls="navbar-sales-panel"
         aria-label="Abrir Especialista IA"
       >
-        <img src="/botao especialista ia.png" alt="Especialista IA" loading="lazy" />
+        <img src={toSitePath('/botao especialista ia.png')} alt="Especialista IA" loading="lazy" />
       </button>
 
       {isOpen ? (

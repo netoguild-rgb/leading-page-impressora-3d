@@ -303,7 +303,7 @@ export default function Hero() {
         <video
           ref={videoRef}
           className="hero-media"
-          src="/Steampunk_Robot_D_Printing_Animation_scrub.mp4"
+          src={toSitePath('/Steampunk_Robot_D_Printing_Animation_scrub.mp4')}
           muted
           playsInline
           preload="metadata"
@@ -311,14 +311,14 @@ export default function Hero() {
         <img
           ref={rawImgRef}
           className="hero-media hero-img-layer"
-          src="/robot-raw.webp"
+          src={toSitePath('/robot-raw.webp')}
           alt="Robô impresso sem pintura"
           style={{ opacity: 0 }}
         />
         <img
           ref={colorImgRef}
           className="hero-media hero-img-layer"
-          src="/robot-colored.webp"
+          src={toSitePath('/robot-colored.webp')}
           alt="Robô impresso pintado"
           style={{ opacity: 0 }}
         />

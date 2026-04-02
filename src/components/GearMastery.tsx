@@ -2,6 +2,7 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { toSitePath } from '../lib/sitePath';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -168,7 +169,7 @@ export default function GearMastery() {
         <video
           ref={videoRef}
           className="gear-media"
-          src="/maquina-scrub-max-fluid.mp4"
+          src={toSitePath('/maquina-scrub-max-fluid.mp4')}
           muted
           playsInline
           preload="metadata"
@@ -176,7 +177,7 @@ export default function GearMastery() {
         <img
           ref={finalImgRef}
           className="gear-media gear-final-layer"
-          src="/final%20maquina.webp"
+          src={toSitePath('/final%20maquina.webp')}
           alt="Peça final da máquina após a montagem"
           style={{ opacity: 0 }}
         />

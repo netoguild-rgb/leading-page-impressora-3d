@@ -611,6 +611,25 @@ function App() {
   };
 
   useEffect(() => {
+    const onInternalAnchorClick = (event: MouseEvent) => {
+      if (event.defaultPrevented) return;
+      const target = event.target as HTMLElement | null;
+      if (!target) return;
+
+      const anchor = target.closest('a[href]') as HTMLAnchorElement | null;
+      if (!anchor) return;
+      if (anchor.target === '_blank' || anchor.hasAttribute('download')) return;
+
+      const rawHref = anchor.getAttribute('href');
+      if (!rawHref || !rawHref.startsWith('/') || rawHref.startsWith('//')) return;
+
+      const nextHref = toSitePath(rawHref);
+      if (nextHref === rawHref) return;
+
+      event.preventDefault();
+      window.location.href = nextHref;
+    };
+
     const rewriteRootPath = (value: string | null): string | null => {
       if (!value) return null;
       const trimmed = value.trim();
@@ -671,9 +690,11 @@ function App() {
       rewriteAttrs();
     });
     observer.observe(document.body, { childList: true, subtree: true });
+    document.addEventListener('click', onInternalAnchorClick, true);
 
     return () => {
       observer.disconnect();
+      document.removeEventListener('click', onInternalAnchorClick, true);
     };
   }, []);
   const pageLoadingFallback = (
