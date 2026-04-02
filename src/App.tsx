@@ -634,7 +634,9 @@ function App() {
       if (!value) return null;
       const trimmed = value.trim();
       if (!trimmed.startsWith('/') || trimmed.startsWith('//')) return null;
-      return toSitePath(trimmed);
+      const nextValue = toSitePath(trimmed);
+      if (nextValue === trimmed) return null;
+      return nextValue;
     };
 
     const rewriteSrcSet = (value: string | null): string | null => {
