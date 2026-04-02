@@ -686,6 +686,8 @@ body.mobile-menu-open {
   transform: translate3d(102%, 0, 0);
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   pointer-events: none;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .navbar-mobile-panel.is-open {
@@ -725,6 +727,8 @@ body.mobile-menu-open {
 .navbar-mobile-links {
   display: grid;
   gap: 0.3rem;
+  flex: 1;
+  align-content: start;
 }
 
 .navbar-mobile-links a {
@@ -3783,6 +3787,26 @@ body.mobile-menu-open {
   }
 }
 
+@media (max-width: 560px) {
+  .blog-hub-top {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "search"
+      "subscribe";
+  }
+
+  .blog-hub-subscribe {
+    justify-self: stretch;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .blog-hub-search-wrap {
+    width: 100%;
+  }
+}
+
 .catalog-page {
   background:
     radial-gradient(82rem 44rem at 92% -10%, color-mix(in srgb, var(--accent) 13%, transparent), transparent 58%),
@@ -4103,12 +4127,18 @@ body.mobile-menu-open {
 
   .catalog-filters {
     gap: 0.4rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.4rem;
+    scrollbar-width: thin;
   }
 
   .catalog-filter-btn {
     min-height: 40px;
     font-size: 0.7rem;
     padding: 0.42rem 0.72rem;
+    white-space: nowrap;
+    flex: 0 0 auto;
   }
 
   .catalog-grid {
@@ -4249,6 +4279,18 @@ body.mobile-menu-open {
   .media-grid {
     grid-template-columns: 1fr;
     gap: 0.62rem;
+  }
+
+  .media-brand-filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.4rem;
+    scrollbar-width: thin;
+  }
+
+  .media-brand-filters .catalog-filter-btn {
+    white-space: nowrap;
+    flex: 0 0 auto;
   }
 
   .media-frame-wrap {
@@ -4924,6 +4966,8 @@ body.mobile-menu-open {
 
   .consulting-cta-group .catalog-cta {
     min-height: 44px;
+    width: 100%;
+    justify-content: center;
   }
 }
 
@@ -5216,8 +5260,29 @@ body.mobile-menu-open {
     padding: 6.4rem 1rem 3.6rem;
   }
 
+  .product-breadcrumb {
+    font-size: 0.76rem;
+    gap: 0.34rem;
+  }
+
   .product-hero {
     padding: 0.72rem;
+  }
+
+  .product-hero h1 {
+    font-size: clamp(1.72rem, 8.2vw, 2.35rem);
+    line-height: 1.07;
+  }
+
+  .product-hero p {
+    font-size: 0.96rem;
+    line-height: 1.6;
+  }
+
+  .product-hero-cta-group {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
   }
 
   .product-hero-media {
@@ -5232,6 +5297,7 @@ body.mobile-menu-open {
 
   .product-cta {
     min-height: 44px;
+    width: 100%;
   }
 }
 
