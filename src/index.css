@@ -175,7 +175,7 @@ body.mobile-menu-open {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 200;
+  z-index: 400;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -642,8 +642,10 @@ body.mobile-menu-open {
 
 .navbar-mobile-toggle {
   display: none;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 4px;
   width: 44px;
   height: 44px;
   border: 1px solid var(--border);
@@ -667,7 +669,7 @@ body.mobile-menu-open {
 }
 
 .navbar-mobile-toggle span + span {
-  margin-top: 4px;
+  margin-top: 0;
 }
 
 .navbar-mobile-toggle.is-open span:nth-child(1) {
@@ -685,7 +687,7 @@ body.mobile-menu-open {
 .navbar-mobile-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 215;
+  z-index: 415;
   border: none;
   background: rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(1px);
@@ -705,7 +707,7 @@ body.mobile-menu-open {
   right: 0;
   width: min(86vw, 360px);
   height: 100dvh;
-  z-index: 220;
+  z-index: 420;
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(14px);
   border-left: 1px solid var(--border);
@@ -2106,7 +2108,8 @@ body.mobile-menu-open {
     gap: 0.7rem;
   }
 
-  .hero-btn-primary {
+  .hero-btn-primary,
+  .hero-btn-secondary {
     width: 100%;
     justify-content: center;
   }
@@ -5124,7 +5127,8 @@ body.mobile-menu-open {
     );
   }
 
-  .consulting-hero {
+  .consulting-hero,
+  .services .consulting-hero {
     grid-template-columns: 1fr;
     gap: 0.8rem;
   }
