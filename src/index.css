@@ -1832,7 +1832,7 @@ body.mobile-menu-open {
 
   .navbar {
     height: 64px;
-    padding: 0 max(1rem, env(safe-area-inset-left)) 0 max(1rem, env(safe-area-inset-right));
+    padding: 0 max(1rem, env(safe-area-inset-right)) 0 max(1rem, env(safe-area-inset-left));
   }
 
   .navbar-logo {
@@ -1921,7 +1921,7 @@ body.mobile-menu-open {
   }
 
   .hero-btn-secondary {
-    padding: 0.35rem 0.2rem;
+    padding: 0.66rem 1.28rem;
   }
 
   .hero-costs {
@@ -2039,10 +2039,54 @@ body.mobile-menu-open {
   .contact-mail-link {
     text-align: center;
   }
+
+  /* Gear: prevent height: 100% collapse on auto-height parent */
+  .gear-inner {
+    height: auto;
+  }
+
+  /* Feature: prevent translateX overflow on single-column mobile layout */
+  .feature-item.is-active .feature-resource,
+  .feature-item.is-active .feature-copy,
+  .feature-item.is-active .features-action-btn {
+    transform: translateX(0);
+  }
+
+  .feature-item.is-active .features-action-btn:hover {
+    transform: translateY(-1px);
+  }
+
+  /* Highlight: remove max-width on stacked full-width cards */
+  .highlight-text-block p {
+    max-width: 100%;
+  }
+
+  /* Consulting: stack CTA buttons vertically */
+  .consulting-cta-group {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 480px) {
   .specs-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .hero-brand-block {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .spec-item {
+    padding: 0.9rem 0.6rem;
+    min-height: 0;
+  }
+
+  .spec-value {
+    font-size: 1.2rem;
+  }
+
+  .spec-icon {
+    font-size: 1.65rem;
+  }
 
   .hero-inner {
     padding: 84px 0.9rem 11.4rem;
@@ -2155,7 +2199,7 @@ body.mobile-menu-open {
   }
 
   .hero-btn-secondary {
-    padding: 0.28rem 0.1rem;
+    padding: 0.62rem 1rem;
   }
 
   .hero-costs {
