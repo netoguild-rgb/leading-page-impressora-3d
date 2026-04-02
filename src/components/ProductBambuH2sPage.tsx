@@ -55,7 +55,7 @@ export default function ProductBambuH2sPage() {
 
         <header className="product-hero">
           <div className="product-hero-media">
-            <img src="/P2S-2.png" alt="Bambu Lab P2S com AMS 2 Pro" loading="eager" />
+            <img src="/bambu-lab-h2s-ams2pro-cinza.webp" alt="Bambu Lab P2S com AMS 2 Pro" loading="eager" />
           </div>
 
           <div className="product-hero-content">

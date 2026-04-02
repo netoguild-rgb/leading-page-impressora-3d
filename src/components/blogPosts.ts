@@ -3,6 +3,7 @@
   slug: string;
   title: string;
   excerpt: string;
+  highlights?: string[];
   image: string;
   updatedAt: string;
   author: string;
@@ -15,6 +16,12 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     title: 'Mercado de produtos fabricados com impressão 3D no Brasil',
     excerpt:
       'Entenda o momento do mercado, onde estão as oportunidades e como transformar impressão 3D em receita recorrente. O artigo mostra segmentos que já compram peças impressas e os critérios que mais pesam na decisão comercial.',
+    highlights: [
+      'Resumo com números de crescimento global e sinais de demanda industrial no Brasil.',
+      'Mapa de oportunidades: peças funcionais, personalização premium e aplicações técnicas.',
+      'Estratégias comerciais para vender por aplicação e aumentar margem com recorrência.',
+      'Critérios objetivos para posicionar a oferta e acelerar conversão comercial.',
+    ],
     image: '/Mercado%20de%20produtos%20fabricados%20com%20impress%C3%A3o%203D%20no%20Brasil.png',
     updatedAt: 'Atualizado em 28 de março de 2026',
     author: 'João Neto',

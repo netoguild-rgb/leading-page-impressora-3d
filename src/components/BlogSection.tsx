@@ -24,6 +24,7 @@ type HubPost = {
   key: string;
   title: string;
   excerpt: string;
+  highlights?: string[];
   image: string;
   updatedAt: string;
   author: string;
@@ -83,6 +84,7 @@ export default function BlogSection() {
       key: `internal-${post.slug}`,
       title: post.title,
       excerpt: post.excerpt,
+      highlights: post.highlights,
       image: post.image,
       updatedAt: post.updatedAt,
       author: post.author,
@@ -99,6 +101,7 @@ export default function BlogSection() {
       key: `news-${item.slug}`,
       title: item.title,
       excerpt: item.excerpt,
+      highlights: item.highlights,
       image: item.image,
       updatedAt: item.updatedAt,
       author: item.author,
@@ -276,6 +279,16 @@ export default function BlogSection() {
                   <div className="blog-hub-featured-content">
                     <h3>{heroPost.title}</h3>
                     <p>{heroPost.excerpt}</p>
+                    {heroPost.highlights?.length ? (
+                      <div className="blog-hub-featured-insights">
+                        <p className="blog-hub-featured-insights-title">Neste artigo:</p>
+                        <ul className="blog-hub-featured-insights-list">
+                          {heroPost.highlights.slice(0, 4).map((highlight) => (
+                            <li key={highlight}>{highlight}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : null}
                     <div className="blog-hub-meta">
                       <span>
                         By {heroPost.author} • <Prism3dLogoMark className="blog-logo-mark--inline" />
