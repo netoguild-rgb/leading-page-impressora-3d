@@ -1,6 +1,7 @@
 ﻿import { useEffect, useMemo, useRef, useState } from 'react';
 import { BLOG_POSTS } from './blogPosts';
 import { BLOG_NEWS_ITEMS } from './blogNews';
+import { toSitePath } from '../lib/sitePath';
 
 const POSTS_PER_PAGE = 10;
 const BLOG_QUICK_FILTERS = [
@@ -85,7 +86,7 @@ export default function BlogSection() {
       title: post.title,
       excerpt: post.excerpt,
       highlights: post.highlights,
-      image: post.image,
+      image: toSitePath(post.image),
       updatedAt: post.updatedAt,
       author: post.author,
       href: `/blog/${post.slug}`,
@@ -102,7 +103,7 @@ export default function BlogSection() {
       title: item.title,
       excerpt: item.excerpt,
       highlights: item.highlights,
-      image: item.image,
+      image: toSitePath(item.image),
       updatedAt: item.updatedAt,
       author: item.author,
       href: item.sourceUrl,

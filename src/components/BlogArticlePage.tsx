@@ -1,5 +1,6 @@
 ﻿import type { CSSProperties } from 'react';
 import { getBlogPostBySlug } from './blogPosts';
+import { toSitePath } from '../lib/sitePath';
 
 function Prism3dLogoMark({ className = '' }: { className?: string }) {
   return (
@@ -27,7 +28,7 @@ type BlogArticlePageProps = {
 export default function BlogArticlePage({ slug }: BlogArticlePageProps) {
   const post = getBlogPostBySlug(slug);
   const heroStyle = {
-    '--blog-hero-image': `url("${post?.image ?? ''}")`,
+    '--blog-hero-image': `url("${toSitePath(post?.image ?? '')}")`,
   } as CSSProperties;
 
   if (!post) {
