@@ -2642,12 +2642,12 @@ body.mobile-menu-open {
   }
 
   .creative-section {
-    min-height: calc(100svh + (var(--creative-steps) * 52vh));
+    min-height: calc(100svh - 64px + (var(--creative-steps) * 52vh));
   }
 
   .creative-sticky {
-    top: 0;
-    height: 100svh;
+    top: 64px;
+    height: calc(100svh - 64px);
   }
 
   .creative-sticky::after {
@@ -2661,7 +2661,7 @@ body.mobile-menu-open {
   .creative-inner {
     display: grid;
     grid-template-columns: 1fr;
-    padding: 60px 1rem 2.2rem;
+    padding: 1.5rem 1rem 2.2rem;
   }
 
   .creative-copy-stage {
