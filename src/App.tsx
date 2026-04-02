@@ -611,21 +611,64 @@ function App() {
   };
 
   useEffect(() => {
-    const rewriteAnchors = () => {
-      const anchors = document.querySelectorAll<HTMLAnchorElement>('a[href^="/"]');
-      anchors.forEach((anchor) => {
-        const rawHref = anchor.getAttribute('href');
-        if (!rawHref || rawHref.startsWith('//')) return;
-        const nextHref = toSitePath(rawHref);
-        if (nextHref !== rawHref) {
-          anchor.setAttribute('href', nextHref);
-        }
+    const rewriteRootPath = (value: string | null): string | null => {
+      if (!value) return null;
+      const trimmed = value.trim();
+      if (!trimmed.startsWith('/') || trimmed.startsWith('//')) return null;
+      return toSitePath(trimmed);
+    };
+
+    const rewriteSrcSet = (value: string | null): string | null => {
+      if (!value) return null;
+      const next = value
+        .split(',')
+        .map((entry) => {
+          const item = entry.trim();
+          if (!item) return item;
+          const [url, ...descriptor] = item.split(/\s+/);
+          if (!url.startsWith('/') || url.startsWith('//')) return item;
+          const converted = toSitePath(url);
+          return [converted, ...descriptor].join(' ').trim();
+        })
+        .join(', ');
+
+      return next === value ? null : next;
+    };
+
+    const rewriteAttrs = () => {
+      const internalAnchors = document.querySelectorAll<HTMLAnchorElement>('a[href^="/"]');
+      internalAnchors.forEach((anchor) => {
+        const nextHref = rewriteRootPath(anchor.getAttribute('href'));
+        if (nextHref) anchor.setAttribute('href', nextHref);
+      });
+
+      const internalSrcNodes = document.querySelectorAll<HTMLElement>('img[src^="/"],video[src^="/"],source[src^="/"]');
+      internalSrcNodes.forEach((node) => {
+        const nextSrc = rewriteRootPath(node.getAttribute('src'));
+        if (nextSrc) node.setAttribute('src', nextSrc);
+      });
+
+      const posterNodes = document.querySelectorAll<HTMLVideoElement>('video[poster^="/"]');
+      posterNodes.forEach((video) => {
+        const nextPoster = rewriteRootPath(video.getAttribute('poster'));
+        if (nextPoster) video.setAttribute('poster', nextPoster);
+      });
+
+      const srcSetNodes = document.querySelectorAll<HTMLElement>('img[srcset],source[srcset]');
+      srcSetNodes.forEach((node) => {
+        const nextSrcSet = rewriteSrcSet(node.getAttribute('srcset'));
+        if (nextSrcSet) node.setAttribute('srcset', nextSrcSet);
       });
     };
 
-    rewriteAnchors();
+    const root = document.documentElement;
+    root.style.setProperty('--services-hero-bg-url', `url("${toSitePath('/linha-de-producao.png')}")`);
+    root.style.setProperty('--consultoria-hero-slide-one-url', `url("${toSitePath('/consu%201.png')}")`);
+    root.style.setProperty('--consultoria-hero-slide-two-url', `url("${toSitePath('/consu%202.png')}")`);
+
+    rewriteAttrs();
     const observer = new MutationObserver(() => {
-      rewriteAnchors();
+      rewriteAttrs();
     });
     observer.observe(document.body, { childList: true, subtree: true });
 

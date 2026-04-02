@@ -4418,7 +4418,7 @@ body.mobile-menu-open {
 .services-hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('/linha-de-producao.png');
+  background-image: var(--services-hero-bg-url, url('/linha-de-producao.png'));
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -4436,12 +4436,12 @@ body.mobile-menu-open {
 }
 
 .consulting-hero-slide--one {
-  background-image: url('/consu%201.png');
+  background-image: var(--consultoria-hero-slide-one-url, url('/consu%201.png'));
   animation-delay: 0s;
 }
 
 .consulting-hero-slide--two {
-  background-image: url('/consu%202.png');
+  background-image: var(--consultoria-hero-slide-two-url, url('/consu%202.png'));
   animation-delay: -7s;
 }
 
